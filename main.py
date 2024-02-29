@@ -65,12 +65,12 @@ def get_santas(names_list, couples, matches={}, current_rep=0, verbose=False):
 
 import sys
 
-TEST_1 = "exercice"
-TEST_2 = "error_samename"
-TEST_3 = "nocouples"
-TEST_4 = "morenames"
-TEST_5 = "error_few"
-TEST_6 = "few"
+TEST_1 = "default"
+TEST_2 = "error_1"
+TEST_3 = "working_1"
+TEST_4 = "working_2"
+TEST_5 = "error_2"
+TEST_6 = "working_3"
 
 if __name__ == '__main__':
     arguments = sys.argv
@@ -78,43 +78,43 @@ if __name__ == '__main__':
     verbose = ("-v" in arguments)
 
     if len(arguments) > 1:
-        if arguments[1] == TEST_1:
+        if TEST_1 in arguments:
             # EXERCICE EXAMPLE
             PEOPLE = ["Florent", "Jessica", "Coline", "Emilien", "Ambroise", "Bastien"]
             COUPLES = [("Florent", "Jessica"), ("Coline", "Emilien")]
-            matches = get_santas(PEOPLE, COUPLES, verbose=verbose)
-        elif arguments[1] == TEST_2:
+        elif TEST_2 in arguments:
             # ERROR BECAUSE 2 TIMES THE SAME NAME
             PEOPLE = ["Florent", "Jessica", "Coline", "Emilien", "Ambroise", "Bastien", "Bastien"]
             COUPLES = [("Florent", "Jessica"), ("Coline", "Emilien")]
-            matches = get_santas(PEOPLE, COUPLES, verbose=verbose)
-        elif arguments[1] == TEST_3:
+        elif TEST_3 in arguments:
             # TEST WITHOUT ANY COUPLES
             PEOPLE = ["Florent", "Jessica", "Coline", "Emilien", "Ambroise", "Bastien"]
             COUPLES = []
-            matches = get_santas(PEOPLE, COUPLES, verbose=verbose)
-        elif arguments[1] == TEST_4:
+        elif TEST_4 in arguments:
             # TEST WITH MORE NAMES AND SAME COUPLES
             PEOPLE = ["Florent", "Jessica", "Coline", "Emilien", "Ambroise", "Bastien", "Arnaud", "Romain", "Roman", "Lea"]
             COUPLES = [("Florent", "Jessica"), ("Coline", "Emilien")]
-            matches = get_santas(PEOPLE, COUPLES, verbose=verbose)
-        elif arguments[1] == TEST_5:
+        elif TEST_5 in arguments:
             # ERROR BECAUSE 3 NAMES AND A COUPLE
             PEOPLE = ["Florent", "Jessica", "Coline",]
             COUPLES = [("Florent", "Jessica")]
-            matches = get_santas(PEOPLE, COUPLES, verbose=verbose)
-        elif arguments[1] == TEST_6:
+        elif TEST_6 in arguments:
             # TEST WITH 4 NAMES AND A COUPLE
             PEOPLE = ["Florent", "Jessica", "Coline", "Arnaud"]
             COUPLES = [("Florent", "Jessica")]
-            matches = get_santas(PEOPLE, COUPLES, verbose=verbose)
     else:
         # EXERCICE EXAMPLE
         PEOPLE = ["Florent", "Jessica", "Coline", "Emilien", "Ambroise", "Bastien"]
         COUPLES = [("Florent", "Jessica"), ("Coline", "Emilien")]
-        matches = get_santas(PEOPLE, COUPLES, verbose=verbose)
 
+    
+    print("Runnning SecretSanta with these values:")
+    print(f"NAME LIST: {PEOPLE}")
+    print(f"COUPLES LIST: {COUPLES}\n")
+
+    matches = get_santas(PEOPLE, COUPLES, verbose=verbose)
     if not matches:
-        print("It is impossible to assign using my rules.")
+        print("\nIt is impossible to assign using my rules.")
     else:
-        print(f"Here are your assignments: {matches}")
+        print(f"\nHere are the final assignments:")
+        print(matches)
