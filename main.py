@@ -102,6 +102,10 @@ if __name__ == '__main__':
             # TEST WITH 4 NAMES AND A COUPLE
             PEOPLE = ["Florent", "Jessica", "Coline", "Arnaud"]
             COUPLES = [("Florent", "Jessica")]
+        else:
+            # EXERCICE EXAMPLE
+            PEOPLE = ["Florent", "Jessica", "Coline", "Emilien", "Ambroise", "Bastien"]
+            COUPLES = [("Florent", "Jessica"), ("Coline", "Emilien")]
     else:
         # EXERCICE EXAMPLE
         PEOPLE = ["Florent", "Jessica", "Coline", "Emilien", "Ambroise", "Bastien"]
